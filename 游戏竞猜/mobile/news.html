@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>发现</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: "微软雅黑";
+            font-size: 12px;
+        }
+        a{
+            text-decoration: none;
+         }
+        .clear:after{
+            display: table;
+            clear: both;
+            content: "";
+        }
+        .search{
+            padding:10px 0;
+            background-color: #39f;
+            width:100%;
+            text-align: center;
+        }
+        .search>input{
+            width:70%;
+            border-radius: 3px;
+            border:none;
+            height:30px;
+        }
+        .search>button{
+            width:15%;
+            margin-left:5%;
+            height:30px;
+            background-color: #fff;
+            color:#000;
+            border-radius: 3px;
+            border:none;
+        }
+        /*内容部分*/
+        .news_pic{
+            width:100%;
+        }
+        .news_pic>img{
+            width:100%;
+        }
+        .hot_talk{
+            border-bottom:2px solid #adadad;
+            padding-bottom: 10px;
+        }
+        .hot{
+            width:90%;
+            margin-top:10px;
+            padding:0 5%;
+            margin-bottom:50px;
+        }
+        .hot>p{
+            width:30%;
+            border:1px solid #adadad;
+            text-align: center;
+            background-color:#e0e0e0;
+            padding:5px 0;
+            font-size:1.1rem;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .hot>div>h3{
+            font-size:1.2rem;
+        }
+        .hot>div>p:nth-child(3)>a:nth-child(2){
+            float:right;
+        }
+        .hot>div>h3,.hot>div>p{
+            width:90%;
+            margin:10px 0;
+        }
+        .hot>div:nth-child(2){
+            width:70%;
+            float:left;
+        }
+        .hot>div:nth-child(3){
+            width:30%;
+            float:right;
+        }
+        .hot>div>img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="search">
+    <input type="text" placeholder="请输入搜索..."/>
+    <button type="button">搜索</button>
+</div>
+<div class="news_pic">
+    <img src="img/荒.jpg" alt=""/>
+</div>
+<div class="hot_talk">
+    <div class="hot clear">
+        <p>热门话题</p>
+        <div>
+            <h3>内容标题</h3>
+            <p>这里是话题的描述</p>
+            <p><a href="">[阅读100]</a><a href="">[评论20]</a></p>
+        </div>
+        <div>
+            <img src="img/莹草.jpg" alt=""/>
+        </div>
+    </div>
+    <div class="hot clear">
+        <p>猜你喜欢</p>
+        <div>
+            <h3>内容标题</h3>
+            <p>这里是话题的描述</p>
+            <p><a href="">[阅读100]</a><a href="">[评论20]</a></p>
+        </div>
+        <div>
+            <img src="img/莹草.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $('#footer').load('footer.html');
+</script>
+</body>
+</html>

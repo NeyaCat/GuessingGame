@@ -1,0 +1,28 @@
+/*-----------------------------*/
+.row>table>thead>tr>th{
+     text-align: center;
+ }
+.row>table>tbody>tr>td{
+    text-align: center;
+}
+.fenye{
+    text-align: center;
+}
+.fenye>ul>li{
+    cursor: pointer;
+}
+#report{
+    padding:20px 0;
+}
+#report>h4{
+    padding:10px 10px;
+}
+#report>textarea{
+    width:100%;
+    resize : none;
+    font-size:1.6rem;
+    margin-top:10px;
+}
+#report>p{
+    text-align: right;
+}

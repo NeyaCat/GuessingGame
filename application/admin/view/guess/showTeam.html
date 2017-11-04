@@ -1,0 +1,45 @@
+{include file="public/header" /}
+<style>
+    .btn_s>div{
+        float: left; width: 50%; text-align: center;
+    }
+    .body-div{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .body-div div{
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .head-img{
+        width: 100px;
+        height:100px;
+        border: 1px #0d0d0d solid;
+        padding: 1px;
+
+    }
+    .head-img img{
+        width: 100px;
+        height:100px;
+    }
+    .name{
+        width: 400px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+    }
+</style>
+<body>
+<div class="body-div">
+    <div class="head-img">
+        <img src="{$select.timage}"/>
+    </div>
+    <div class="name">
+        {$select.tname}
+    </div>
+</div>
+
+
+{include file="public/footer" /}
+</body>
+</html>

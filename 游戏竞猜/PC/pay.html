@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/same.css"/>
+    <title></title>
+    <style>
+        h3{
+            color:#8c8c8c;
+            margin: 25px 0 15px 0;
+        }
+        p{
+            margin:30px 0;
+            font-size:1.8rem;
+        }
+        .pay{
+            border-radius: 5px;
+            border: 1px solid #dfdfdf;
+            padding: 40px 20px;
+            background-color: #f3f3f3;
+        }
+        .show{
+            padding-top: 20px;
+            color: #8c8c8c;
+        }
+        b,i{
+            color:#ff6c68;
+            font-style: normal;
+            font-size:1.8rem;
+        }
+        select{
+            color: #505050;
+            border:1px solid #e0e0e0;
+            padding:5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size:1.6rem;
+        }
+        .pay select>option{
+            font-size:1.6rem;
+        }
+        button{
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .on{
+            border:1px solid #31b0d5;
+            background: url("image/靠边选择勾.png") no-repeat right bottom;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="header"></div>
+    <h3>充值</h3>
+    <form action="">
+        <div class="pay">
+            <p>充值金额：
+                <select name="" id="">
+                    <option value="" style="display:none">请选择充值金额</option>
+                    <option value="">1元</option>
+                    <option value="">5元</option>
+                    <option value="">10元</option>
+                    <option value="">20元</option>
+                    <option value="">30元</option>
+                    <option value="">50元</option>
+                    <option value="">100元</option>
+                </select>
+            </p>
+            <p class="show">充值<b>100</b>积分，赠送<i>0</i>积分</p>
+            <p class="how">充值方式：
+                <button type="button">支付宝支付</button>
+                <button type="button">微信支付</button>
+            </p>
+            <p>
+                <button type="button" class="btn btn-danger">确认支付</button>
+            </p>
+        </div>
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div id="copyRight"></div>
+    <div id="footer"></div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $('#header').load('header.html');
+    $('#copyRight').load('copyRight.html');
+    $('#footer').load('footer.html');
+</script>
+<script>
+    $('.how button').click(function(){
+        $(this).addClass('on').siblings().removeClass('on');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/same.css"/>
+    <link rel="stylesheet" href="css/user_guessing.css"/>
+    <title></title>
+    <style>
+        h3{
+            text-align: center;
+            padding:20px 0;
+        }
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <form class="form-horizontal">
+        <h3>比赛类型</h3>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">游戏名称</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <h3>参赛队伍</h3>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">队伍一</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">队伍二</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <h3>赔率</h3>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">队伍一</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">队伍二</label>
+            <div class="col-xs-10">
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <h3>竞猜内容</h3>
+        <div class="match_box">
+            <div class="form-group match_group">
+                <label class="col-sm-2 control-label">1</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <button type="button" id="add_match" class="btn btn-primary">添加内容</button>
+        <br/>
+        <br/>
+        <br/>
+        <a href="match.html" class="btn btn-success">确认提交</a>
+    </form>
+</div>
+<div id="footer"></div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+</script>
+<script>
+    $('#add_match').click(function(){
+        clone=$('.match_group:first-child').clone();
+        $('.match_box').append(clone);
+        var n=$('.match_group').size();
+        $('.match_group:last-child>label').html(n);
+    })
+</script>
+</body>
+</html>

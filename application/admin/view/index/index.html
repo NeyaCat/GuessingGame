@@ -1,0 +1,22 @@
+{extend name='base'/}
+{block name='content'}
+<body>
+<div class="page-container">
+    <p class="f-20 text-success">欢迎使用游戏竞猜 <span class="f-14">v2.0</span>网络后台管理系统！</p>
+
+    <table class="table table-border table-bordered table-bg mt-20">
+        <thead>
+        <tr>
+            <th colspan="2" scope="col">服务器信息</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach name='$info' item='vo'}
+        <tr>
+            <th width="30%">{$key}</th>
+            <td>{$vo}</td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+{/block}

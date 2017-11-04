@@ -1,0 +1,76 @@
+{include file="public/header" /}
+<body>
+<article class="page-container">
+    <form action="{:url('guess/matchsEdit')}" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>比赛名称：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$oldlist.mname}" placeholder="" name="mname">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>比赛类型：</label>
+            <select name="game_id"  style="height:31px;margin-left: 20px;" >
+                <option value="{$oldlist.game_id}">{:getGameName($oldlist.game_id)}</option>
+                {volist name="$games" id="vo"}
+                <option value="{$vo.game_id}">{$vo.gname}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛队伍：</label>
+            <select name="team1_id"  style="height:31px;margin-left: 20px;" id="cbrand1_name" >
+                <option value="{$oldlist.team1_id}">{$oldlist.team1_name}</option>
+                {volist name="$teamsID" id="vo"}
+                <option value="{$vo.team_id}">{$vo.tname}</option>
+                {/volist}
+            </select>
+            VS
+            <select name="team2_id"  style="height:31px;margin-left: 20px;" id="cbrand2_name" >
+                <option value="{$oldlist.team2_id}">{$oldlist.team2_name}</option>
+                {volist name="$teamsID" id="vo"}
+                <option value="{$vo.team_id}">{$vo.tname}</option>
+                {/volist}
+            </select>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛时间：</label>
+            日期范围：
+            <input type="text" name="starttime" class="input-text" id="" onfocus="selecttime(1)" value="{$oldlist.starttime|date('Y-m-d H:i:s') ###}" style="width:120px;" >
+            -
+            <input type="text" name="endtime" class="input-text" id="" onfocus="selecttime(1)" value="{$oldlist.endtime|date('Y-m-d H:i:s') ###}"  style="width:120px;">
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="hidden" value="{$oldlist.matchs_id}" name="matchs_id">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" onclick="closess()" type="button" value="&nbsp;&nbsp;取消&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+    });
+    $(function(){
+        var ue = UE.getEditor('editor');
+
+    });
+    function closess() {
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+
+
+</script>
+{load href="__STATIC__/admin/js/My97DatePicker/WdatePicker.js" /}
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

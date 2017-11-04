@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>个人</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-size: 12px;
+            font-family: "微软雅黑";
+        }
+        a{
+            text-decoration: none;
+        }
+        .signIn{
+            text-align: right;
+            margin-top:10px;
+            margin-right:5%;
+        }
+        .signIn>a{
+            font-size:1.2rem;
+        }
+        .userPic{
+            width:40%;
+            margin:0 auto;
+            text-align: center;
+        }
+        .userPic>img{
+            width:100px;
+            border-radius: 50%;
+            height:100px;
+        }
+        .Prerogative{
+            margin-top:10px;
+            text-align: center;
+        }
+        .Prerogative>a{
+            padding:5px 2%;
+            margin-left:1%;
+            background-color: #3399ff;
+            color:#fff;
+            border-radius: 3px;
+            font-size:1.2rem;
+        }
+        .gift>p{
+            width:90%;
+            margin-top:20px;
+            padding:5px 5%;
+            background-color: #7f7f7f;
+        }
+        .gift>p>a{
+            color:#fff;
+            width:30%;
+            padding:5px 2%;
+            font-size:1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <p class="signIn">
+        <a href="">[签到]</a>
+        <a href="">[设置]</a>
+    </p>
+    <div class="userPic">
+        <img src="img/莹草.jpg" alt=""/>
+    </div>
+    <div class="Prerogative">
+        <a href="">我的关注</a>
+        <a href="">我的粉丝</a>
+        <a href="">我的帖子</a>
+        <a href="">历史足迹</a>
+    </div>
+    <div class="gift">
+        <p><a href="">礼物商城</a></p>
+        <p><a href="">收到的礼物</a></p>
+        <p><a href="">赠送的礼物</a></p>
+    </div>
+    <div id="footer"></div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    $('#footer').load('footer.html');
+</script>
+</body>
+</html>

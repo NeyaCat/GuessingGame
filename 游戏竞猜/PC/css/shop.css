@@ -1,0 +1,45 @@
+/*-----------------------------------------*/
+div.row{
+    margin:0;
+    padding:0;
+}
+#nav_list li{
+    width:100%;
+    text-align: center;
+}
+#nav_list>ul{
+    padding:0;
+    margin-right:0;
+    margin-left:0;
+}
+#nav_list>ul>li>ul{
+    width:100%;
+    text-align: center;
+}
+/*---------------------------------------*/
+#shop_content div.caption{
+    text-align: left;
+    margin:0 auto;
+}
+#shop_content div.thumbnail>img{
+    width:100%;
+}
+#shop_content div.thumbnail:hover{
+    border:1px solid #31b0d5;
+}
+#shop_content div.caption>p>b{
+    color:#c9302c;
+    font-size:1.4rem;
+}
+#shop_content a{
+    text-decoration: none;
+}
+#shop_content div.caption>p>span{
+    float: right;
+    color:#9d9d9d;
+    font-size:1.2rem;
+}
+/*-----------------------------------------*/
+#shop_content>nav{
+    text-align: center;
+}

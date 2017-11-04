@@ -1,0 +1,129 @@
+{include file="public/main" /}
+
+<div class="container">
+{include file="public/header" /}
+    <div class="match">
+        <div class="row">
+            <div class="col-xs-5">
+                <img src="{$info['team1']['timage']}" class="img-responsive" alt="{$info['team1']['tname']}"/>
+                <span>{$info['team1']['tname']}</span>
+            </div>
+            <div class="col-xs-2">
+                <b><img src="__STATIC__/index/image/VS.png" alt=""/></b>
+            </div>
+            <div class="col-xs-5">
+                <img src="{$info['team2']['timage']}" class="img-responsive" alt="{$info['team2']['tname']}"/>
+                <span>{$info['team2']['tname']}</span>
+            </div>
+        </div>
+        <h3>比赛竞猜</h3>
+        <ul class="row">
+            <li class="col-xs-4">
+                <span>总共下注</span>
+                <p>{$allItemNum}注</p>
+            </li>
+            <li class="col-xs-4">
+                <span>总下注额</span>
+                <p>{$allMoneyNum}</p>
+            </li>
+            <li class="col-xs-4">
+                <span>截止时间</span>
+                <p>{:date("Y-m-d H:i:s",$info.endtime)}</p>
+            </li>
+        </ul>
+        {if condition="!empty($item)"}
+
+        {volist name="item" id="v"}
+        <div class="winner" data-content="{$v.gues_name}" data-peilv="{$v.peilv}" data-id="{$v.gues_id}">
+            <h4>{$v.gues_name}<span>（共{$v.num}人投注）</span></h4>
+            <p>
+                <a data-id="{$info['team1']['team_id']}">{$info['team1']['tname']}</a>
+                <a data-id="{$info['team2']['team_id']}">{$info['team2']['tname']}</a>
+            </p>
+        </div>
+        {/volist}
+
+        {/if}
+    </div>
+
+
+</div>
+<!--遮罩层-->
+<div class="cover">
+    <div class="cover_box">
+        <h3>
+            投注<a class="cover_close"></a>
+        </h3>
+        <div class="cover_head">
+            <p class="question"><span></span>（Lorem Ipsum 1:0 胜者组优势）</p>
+            <p class="myChose"></p>
+            <p class="answer" style="color: red;text-align: center;font-size: 14px;"></p>
+            <div class="howMuch">
+                <i>投注&nbsp;&nbsp;|</i>
+                <input name="price" type="text" onkeyup="myNum()" placeholder="投注数量" maxlength="5"/>
+            </div>
+            <span id="win">
+                可赢积分：<b>0</b>
+            </span>
+            <span id="gold">当前积分： {$intgral}</span>
+            <div class="tz_btn">
+                <a>投注</a>
+            </div>
+            <input type="hidden" name="team" value=""/>
+            <input type="hidden" name="gues_id" value=""/>
+        </div>
+    </div>
+</div>
+{include file="public/footer" /}
+<script>
+    $('#header').load('header.html');
+    $('#copyRight').load('copyRight.html');
+    $('#footer').load('footer.html');
+</script>
+<script>
+    $(document).ready(function () {
+        $(".tz_btn").children("a").on("click",stake);
+    })
+    $('.cover_close').click(function(){
+        $('.cover').css('display','none');
+    })
+    $('.winner a').click(function(){
+        $('.cover').css('display','block');
+        var teamName=$(this).html();
+        $('.myChose').html(teamName);
+        var team_id = $(this).attr("data-id");
+        var box = $(this).parents(".winner");
+        var content = box.attr("data-content");
+        var peilv = box.attr("data-peilv");
+        var gues_id = box.attr("data-id");
+        $(".answer").html("赔率："+peilv);
+        $("input[name='team']").val(team_id);
+        $("input[name='gues_id']").val(gues_id);
+        $(".question").children("span").text(content);
+    });
+    function myNum(){
+        var val1=$('.howMuch input').val();
+        var peilv = $('.winner').attr("data-peilv");
+        var val2=$('#win b').html();
+        val2=(parseInt(val1) * peilv).toFixed(2);
+        if(val2<0){
+            $('#win b').html(-val2);
+        }else{
+            $('#win b').html(val2);
+        }
+    }
+    function stake() {
+        var gues_id = $("input[name='gues_id']").val();
+        var team_id = $("input[name='team']").val();
+        var price = $("input[name='price']").val();
+        var data = {gues_id:gues_id,team_id:team_id,price:price};
+        $.ajax({
+            url:"{:url('index/Match/stake')}",
+            data:data,
+            type:"post",
+            success:function (res) {
+                alert(res['msg']);
+            }
+        })
+    }
+</script>

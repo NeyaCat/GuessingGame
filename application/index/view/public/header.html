@@ -1,0 +1,14 @@
+
+<body>
+<div class="topHead">
+    <div class="mainPage">
+        <a href="{:url('index/index')}">官方首页</a>
+        <a href="{:url('bbs/index')}">官方论坛</a>
+    </div>
+    {if condition="session('user_name')"}
+    欢迎您:{:session('user_name')}|<a href="{:url('login/logout')}">退出</a>
+    {else/}
+    <a href="{:url('login/index')}">[登录]</a>
+    <a href="{:url('register/index')}">[免费注册]</a>
+    {/if}
+</div>

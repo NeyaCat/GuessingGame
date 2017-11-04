@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>首页</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family: "微软雅黑";
+            font-size: 12px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .search{
+            padding:10px 0;
+            background-color: #39f;
+            width:100%;
+            text-align: center;
+        }
+        .search>input{
+            width:70%;
+            border-radius: 3px;
+            border:none;
+            height:30px;
+        }
+        .search>button{
+            width:15%;
+            margin-left:5%;
+            height:30px;
+            background-color: #fff;
+            color:#000;
+            border-radius: 3px;
+            border:none;
+        }
+        /*用户发帖*/
+        .bigBox{
+            margin-bottom:80px;
+        }
+        ._content{
+            padding:10px 0;
+            width:100%;
+            border-bottom:2px solid #adadad;
+        }
+        ._content>img{
+            width:10%;
+            border-radius: 50%;
+            margin-left: 4%;
+            border:1px solid #adadad;
+        }
+        ._content>._user{
+            width:80%;
+            float: right;
+        }
+        ._content>._user>h3{
+            font-size:1.3rem;
+        }
+        ._content>._user>p{
+            font-size:1.2rem;
+        }
+        ._content_pic{
+            width:75%;
+            margin:10px 0 10px 20%;
+        }
+        ._content_pic>img{
+            width:100%;
+        }
+        ._content_pic>p>a:last-child{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <input type="text" placeholder="请输入搜索..."/>
+        <button type="button">搜索</button>
+    </div>
+    <div class="bigBox">
+<div class="_content">
+    <img src="img/霾-1.png" alt=""/>
+    <div class="_user">
+        <h3>标题</h3>
+        <p>内容描述</p>
+    </div>
+    <div class="_content_pic">
+        <img src="img/妖刀姬.jpg" alt=""/>
+        <p><a href="">[阅读100]</a><a href="">[评论20]</a></p>
+    </div>
+</div>
+    <div class="_content">
+        <img src="img/霾-1.png" alt=""/>
+        <div class="_user">
+            <h3>标题</h3>
+            <p>内容描述</p>
+        </div>
+        <div class="_content_pic">
+            <img src="img/妖刀姬.jpg" alt=""/>
+            <p><a href="">[阅读100]</a><a href="">[评论20]</a></p>
+        </div>
+    </div>
+    </div>
+    <div id="footer"></div>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script>
+        $('#footer').load('footer.html');
+    </script>
+</body>
+</html>

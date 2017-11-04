@@ -1,0 +1,100 @@
+{include file="public/main" /}
+<style>
+    @media screen and (max-width: 992px){
+        .note_title>span{
+            width:40%;
+        }
+        .note_lf>h6{
+            width:50%;
+        }
+    }
+    @media screen and (max-width:750px){
+        .container>.row>span{
+            position: absolute;
+            top:100px;
+            left:9%;
+        }
+        .note_lf>h6{
+            width:100%;
+        }
+    }
+</style>
+
+
+<div class="container">
+    {include file="public/header" /}
+<nav style="background: #ffffff;">
+    <div class="note_title">
+            <span>
+                <a href="#report">回复</a>
+            </span>
+        <h3>发布的标题</h3>
+    </div>
+</nav>
+
+    <div class="row">
+        <span></span>
+        <div class="col-xs-3">
+            <div class="note_lf">
+                <img src="__STATIC__/index/img/LOGO.jpg" alt="" class="img-responsive"/>
+                <h5></h5>
+                <h6>版主</h6>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="note_rt">
+                <p>
+                    {$message.message_content}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {volist name="$messagere" id="v" key="i"}
+    <div class="row">
+        <span>{$i}楼</span>
+        <div class="col-xs-3">
+            <div class="note_lf">
+                <img src="__STATIC__/index/img/LOGO.jpg" alt="" class="img-responsive"/>
+                <h5>{$v.user_name}</h5>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="note_rt">
+                <p>
+                    {$v.messagere_content}
+                </p>
+            </div>
+        </div>
+    </div>
+    {/volist}
+    <div aria-label="Page navigation" class="fenye">
+        <ul class="pagination">
+          {$messagere->render()}
+        </ul>
+    </div>
+    <div id="report">
+        <form action="{:url('noteAdd')}" method="post">
+        <textarea rows="10" class="form-control"  name="messagere_content" placeholder="发表评论"></textarea>
+        <span>
+            <!--<input type="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">-->
+            <input type="hidden" value="{$message.message_id}" name="message_id">
+        </span>
+        <p><button type="submit" class="btn btn-default" id='vvv'>发表</button></p>
+        </form>
+    </div>
+    </div>
+    {include file="public/footer" /}
+
+<script>
+  $('#vvv').click(function(){
+ alert('11111');
+  var user_id = {:session('user.id')};
+  alert(user_id);
+
+});
+       
+    $('.fenye>ul>li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+</script>

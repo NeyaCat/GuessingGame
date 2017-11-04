@@ -1,0 +1,48 @@
+{include file="public/header" /}
+<body>
+<article class="page-container">
+    <form action="{:url('guess/gamesEdit')}" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>游戏名称：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$oldlist.gname}" placeholder="" id="" name="gname">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">游戏简介：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <p><script id="editor"  type="text/plain" name="gcontent" style="width:80%;height:300px;">{$oldlist.gcontent}</script></p>
+            </div>
+        </div>
+        <input class="btn btn-primary radius" type="hidden" name="game_id" value="{:input('param.game_id')}">
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" onclick="closess()" type="button" value="&nbsp;&nbsp;取消&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+    });
+    $(function(){
+        var ue = UE.getEditor('editor');
+
+    });
+    function closess() {
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

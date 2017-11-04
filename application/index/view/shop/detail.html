@@ -1,0 +1,90 @@
+{include file="public/main" /}
+<style>
+    @media (max-width: 750px){
+        #nav_list>ul>li>ul>li{
+            text-align: left;
+        }
+    }
+</style>
+
+
+<div class="container">
+    {include file="public/header" /}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid row" id="nav_list">
+            {volist name='cate' id='vo'}
+            <ul class="nav navbar-nav col-xs-3" id="">
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+                       onclick="member_del(this,'{:url(\'shop/cate\')}','{$vo.goods_cid}')">{$vo.goods_title}</a>
+                    <ul class="dropdown-menu" id="cates">
+
+
+                    </ul>
+                </li>
+            </ul>
+            {/volist}
+
+        </div>
+    </nav>
+    <div id="shop_content">
+        <div class="row">
+            {volist name='data' id='vo'}
+            <div class="col-xs-6 col-md-3">
+                <a href="">
+                    <div class="thumbnail">
+                        <img src="{$vo.goods_image}"style="width: 245px;height:150px">
+                        <div class="caption">
+                            <h5>{$vo.goods_title}</h5>
+                            <p><b>{$vo.goods_intgral}积分</b><span>库存{$vo.goods_count}件</span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {/volist}
+        </div>
+        <nav aria-label="Page navigation">
+            {$data->render()}
+        </nav>
+    </div>
+</div>
+
+<div id="footer"></div>
+<script>
+    var SCOPE = {
+        'detail_url': "{:url('shop/detail')}",
+
+    };
+    function member_del(obj,url,id){
+        //alert(id)
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data:{'id':id},
+            dataType: 'json',
+            success: function(msg){
+                upcases(msg);
+            },
+
+        });
+        return false
+    }
+    //更新案例列表
+    function upcases(msg)
+    {
+        $str="";
+        $(msg).each(function(i){
+            $str+='<li><a href="javascript:;" onclick="shopcateid('+msg[i].goods_cid+')">'+msg[i].goods_title+'</a></li>';
+        });
+        $('.dropdown-menu').html($str);
+
+        if(msg==''){
+            $empty = '<li><a href="#">'+没有数据+'</a></li>';
+            $('.dropdown-menu').html($empty);
+        }
+    }
+
+
+</script>
+
+{include file="public/footer" /}

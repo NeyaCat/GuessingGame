@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/same.css"/>
+    <link rel="stylesheet" href="css/person.css"/>
+    <title></title>
+    <style>
+        @media screen and (max-width: 992px) {
+            nav{
+                display: none;
+            }
+            .container>ul>li>a{
+                font-size:1rem;
+                padding:5px;
+            }
+            .container>.box>.msg>p{
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="header"></div>
+    <h3>个人中心</h3>
+    <ul class="nav nav-tabs">
+        <li class="active self"><a href="#">我的资料</a></li>
+        <li class="pay"><a href="#">充值记录</a></li>
+        <li class="jc"><a href="#">竞猜记录</a></li>
+        <li class="dh"><a href="#">兑换历史</a></li>
+        <li class="zj"><a href="#">收支明细</a></li>
+    </ul>
+    <div class="box">
+        <div class="msg">
+           <p>头像：<img src="img/LOGO.jpg" alt=""/></p>
+           <p>用户名：<input type="text" placeholder="设置昵称" /><button class="btn btn-success">保存</button></p>
+           <p>手机号：133xxxxxxxx <span onclick="change()">修改手机</span></p>
+           <p>金币：<b>1000 </b><span><a href="pay.html">充值金币</a></span></p>
+           <p>积分：<b>2000 </b></p>
+           <p>金币转赠:<input type="text" style="width:62%;" placeholder="输入对方用户手机号"/>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">确认</button>
+           </p>
+            <p>
+                收货地址:<input type="text" style="width:62%;" placeholder="输入兑换物品时的收货地址">
+                <button type="button" class="btn btn-success">保存</button>
+            </p>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#success">发起竞猜</button>
+           <ul>
+               <li>
+                   <span>收益</span>
+                   <p>0</p>
+               </li>
+               <li>
+                   <span>亏损</span>
+                   <p>0</p>
+               </li>
+               <li>
+                   <span>参与竞猜</span>
+                   <p>0场</p>
+               </li>
+               <li>
+                   <span>获胜场次</span>
+                   <p>0场</p>
+               </li>
+               <li>
+                   <span>胜率</span>
+                   <p>0%</p>
+               </li>
+           </ul>
+        </div>
+        <div class="pay_history">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>充值数量</th>
+                    <th>充值时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>这是沸羊羊的感觉</td>
+                    <td>xxx</td>
+                    <td>2017-8-14 13:02</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="jc_history">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>结果</th>
+                    <th>赛事</th>
+                    <th>投注</th>
+                    <th>回收额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>赢</td>
+                    <td>xxxx</td>
+                    <td>1000</td>
+                    <td>+1000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="dh_history">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>兑换内容</th>
+                    <th>数量</th>
+                    <th>消耗</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2017-8-16 09：20</td>
+                    <td>xxxxxxx</td>
+                    <td>2</td>
+                    <td>2000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="zj_history">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>项目</th>
+                    <th>收支</th>
+                    <th>余额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2017-8-16 09：20</td>
+                    <td>xxxxxxx</td>
+                    <td>2</td>
+                    <td>xxxxxxxxxxxx</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="self_cover">
+    <div class="num_change">
+        <div class="close"></div>
+        <br/><br/>
+        <h1>更换手机号</h1>
+        <br/>
+        <form action="">
+            <div>
+                <b>CN>+86</b>
+                <input type="text" placeholder="请输入未注册的手机号" maxLength="11"/>
+            </div>
+            <div>
+                <b>验证码</b>
+                <input type="text" placeholder="请输入验证码"/>
+                <button type="button">发送验证码</button>
+            </div>
+            <br/><br/>
+            <p>确认修改</p>
+        </form>
+    </div>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确认对方信息</h4>
+            </div>
+            <div class="modal-body">
+                <h5>用户名 <span>没错就是我</span></h5>
+                <br/>
+                <h5>电话号码 <span>13333333333</span></h5>
+                <br/>
+                <div class="form-group">
+                    <label for="gold">转赠数量</label>
+                    <input type="text" class="form-control" id="gold" placeholder="请输入转赠数量">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="success">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+               <h3 style="text-align: center">已提交申请</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('ul.nav-tabs>li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+</script>
+<script>
+    $('.self').click(function(){
+        console.log('sss')
+        $('.msg').css('display','block');
+        $('.msg').siblings().css('display','none');
+    });
+    $('.pay').click(function(){
+        $('.pay_history').css('display','block');
+        $('.pay_history').siblings().css('display','none');
+    });
+    $('.jc').click(function(){
+        $('.jc_history').css('display','block');
+        $('.jc_history').siblings().css('display','none');
+    });
+    $('.dh').click(function(){
+        $('.dh_history').css('display','block');
+        $('.dh_history').siblings().css('display','none');
+    });
+    $('.zj').click(function(){
+        $('.zj_history').css('display','block');
+        $('.zj_history').siblings().css('display','none');
+    })
+</script>
+<script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+</script>
+<script>
+    function change(){
+        $('.self_cover').css('display','block');
+    }
+    $('.close').click(function(){
+        $('.self_cover').css('display','none');
+    })
+</script>
+</body>
+</html>

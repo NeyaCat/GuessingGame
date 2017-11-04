@@ -1,0 +1,76 @@
+/*-----------------------------------*/
+/*---------------------------------*/
+.note_title{
+    border-bottom: 1px solid #ccc;
+    margin-bottom:10px;
+    vertical-align: middle;
+    padding:10px 0;
+}
+.note_title>h3{
+    width:60%;
+}
+.note_title>span{
+    float:right;
+    margin-top:5px;
+    width:30%;
+    text-align: right;
+}
+.note_title>span>a{
+    padding:2px 10px;
+    color:#000;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    margin-left:5%;
+}
+.row>.col-xs-9{
+    border-left:1px solid #ccc;
+}
+.note_lf{
+    text-align: center;
+}
+.note_lf>h5{
+    margin-top:5px;
+}
+.note_lf>h6{
+    color:red;
+    border:1px solid #ccc;
+    background-color: #e0e0e0;
+    padding:2px;
+    border-radius: 3px;
+    width:20%;
+    margin:0 auto;
+}
+.note_lf>img{
+    width:80px;
+    margin:0 auto;
+}
+.container>.row{
+    border-bottom:1px solid #ccc;
+    padding-bottom:20px;
+    margin-bottom:20px;
+    position: relative;
+}
+.container>.row>span{
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:1.4rem;
+}
+.fenye{
+    text-align: center;
+}
+.fenye>ul>li{
+    cursor: pointer;
+}
+#report{
+    padding:20px 0;
+}
+#report>textarea{
+    width:100%;
+    resize : none;
+    font-size:1.6rem;
+}
+#report>p{
+    text-align: right;
+}

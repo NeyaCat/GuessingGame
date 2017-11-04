@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/same.css"/>
+    <link rel="stylesheet" href="css/match.css"/>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div id="header"></div>
+    <div class="match">
+        <div class="row">
+            <div class="col-xs-5">
+                <img src="image/Mongolz.png" class="img-responsive" alt=""/>
+                <span>The Mongolz</span>
+            </div>
+            <div class="col-xs-2">
+                <b><img src="image/VS.png" alt=""/></b>
+            </div>
+            <div class="col-xs-5">
+                <img src="image/EVOS.jpg" class="img-responsive" alt=""/>
+                <span>EVOS</span>
+            </div>
+        </div>
+        <h3>比赛竞猜</h3>
+        <ul class="row">
+            <li class="col-xs-4">
+               <span>总共下注</span>
+                <p>220注</p>
+            </li>
+            <li class="col-xs-4">
+                <span>总下注额</span>
+                <p>11585</p>
+            </li>
+            <li class="col-xs-4">
+                <span>截止时间</span>
+                <p>2017-08-29 16:00</p>
+            </li>
+        </ul>
+        <div class="winner">
+            <h4>谁将获得此次比赛的胜利？<span>（共55人投注）</span></h4>
+            <p>
+                <a>The Mongolz</a>
+                <a>EVOS</a>
+            </p>
+        </div>
+        <div class="winner">
+            <h4>第一局比赛哪支队伍先拿到十杀？<span>（共55人投注）</span></h4>
+            <p>
+                <a>The Mongolz</a>
+                <a>EVOS</a>
+            </p>
+        </div>
+        <div class="winner">
+            <h4>第二局比赛哪支队伍先拿到十杀？<span>（共55人投注）</span></h4>
+            <p>
+                <a>The Mongolz</a>
+                <a>EVOS</a>
+            </p>
+        </div>
+        <div class="winner">
+            <h4>第三局比赛哪支队伍先拿到十杀？<span>（共55人投注）</span></h4>
+            <p>
+                <a>The Mongolz</a>
+                <a>EVOS</a>
+            </p>
+        </div>
+    </div>
+    <div id="copyRight"></div>
+    <div id="footer"></div>
+</div>
+<!--遮罩层-->
+<div class="cover">
+    <div class="cover_box">
+        <h3>
+            投注<a class="cover_close"></a>
+        </h3>
+        <div class="cover_head">
+            <p class="question">谁将获得此次比赛的胜利？（Lorem Ipsum 1:0 胜者组优势）</p>
+            <p class="myChose"></p>
+            <div class="howMuch">
+                <i>投注&nbsp;&nbsp;|</i>
+                <input type="text" onkeyup="myNum()" placeholder="投注数量" maxlength="5"/>
+            </div>
+            <span id="win">
+                可赢积分：<b>0</b>
+            </span>
+            <span id="gold">当前积分： 730</span>
+            <div class="tz_btn">
+                <a>投注</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $('#header').load('header.html');
+    $('#copyRight').load('copyRight.html');
+    $('#footer').load('footer.html');
+</script>
+<script>
+    $('.cover_close').click(function(){
+        $('.cover').css('display','none');
+    })
+    $('.winner a').click(function(){
+        $('.cover').css('display','block');
+        var teamName=$(this).html();
+        $('.myChose').html(teamName);
+    });
+    function myNum(){
+        var val1=$('.howMuch input').val();
+        var val2=$('#win b').html();
+        val2=parseInt(val1);
+        if(val2<0){
+            $('#win b').html(-val2);
+        }else{
+            $('#win b').html(val2);
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+{include file="public/main" /}
+<style>
+    @media screen and (max-width: 992px){
+        .carousel{
+            width:100%;
+        }
+        .activity{
+            display: none;
+        }
+    }
+</style>
+
+
+<div class="container">
+    {include file="public/header" /}
+    <section class="clear">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+			 <!--  <li data-target="#carousel-example-generic" data-slide-to="1" -class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2" -class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3" -class="active"></li>-->
+			{foreach name='banner' id='vo'}
+                <li data-target="#carousel-example-generic" data-slide-to="{$key}" ></li>
+             
+           {/foreach}
+            </ul>
+            <div class="carousel-inner" role="listbox">
+			{volist name='banner' id='vo'}
+                <div class="item {if $i==1}active{/if}" >
+                    <img src="{$vo.banner_image}" alt="...">
+                </div>
+            {/volist}
+            </div>
+        </div>
+        <div class="activity">
+            <h4>最新帖子</h4>
+            {volist name="$select" id="vo"}
+            <p><a href="{:url('bbs/note')}">【关于{$vo.message_title}的一些小细节】</a></p>
+            {/volist}
+        </div>
+    </section>
+    <div class="bbs_box">
+        <header>
+            <h3>
+                <a href="">社区广场</a>
+                <a class="change"><img src="__STATIC__/index/image/cate_fold.gif" alt=""/></a>
+            </h3>
+        </header>
+        <ul class="row">
+            <li class="col-xs-12 col-md-4">
+                <a href="">
+                    <img src="__STATIC__/index/image/01.gif" alt=""/>
+                    <b>社区服务</b>
+                    <p>投诉、勋章、交易、桃子</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-4">
+                <a href="">
+                    <img src="__STATIC__/index/image/02.gif" alt=""/>
+                    <b>管理基地</b>
+                    <p>管理议事、经验交流场地</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-4">
+                <a href="">
+                    <img src="__STATIC__/index/image/公告.png" alt=""/>
+                    <b>社区公告</b>
+                    <p>最新消息</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="bbs_box">
+        <header>
+            <h3>
+                <a href="">热门游戏</a>
+                <a class="change"><img src="__STATIC__/index/image/cate_fold.gif" alt=""/></a>
+            </h3>
+        </header>
+        <ul class="row">
+		  {if condition="session('user_id')==''"}
+            <li class="col-xs-12 col-md-3" id='ww'>
+                <a href="">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+			{else}
+			   <li class="col-xs-12 col-md-3">
+                <a href="{:url('bbs/detail')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+			{/if}
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+            <li class="col-xs-12 col-md-3">
+                <a href="{:url('detail/index')}">
+                    <img src="__STATIC__/index/image/lol.gif" alt=""/>
+                    <b>英雄联盟</b>
+                    <p>Dota原版人马倾力打造</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+$(function($){
+    $('.change').click(function(){
+        var fold="image/cate_fold.gif";
+        var open="image/cate_open.gif";
+        var src=$(this).children().attr('src');
+        if(src==fold){
+            $(this).children().attr('src',open);
+        }else{
+            $(this).children().attr('src',fold);
+        }
+        $(this).parent().parent().siblings().fadeToggle();
+    })
+});
+  $('#ww').click(function(){
+
+            confirm('需登录才能购买哦')
+        });
+        </script>
+</script>
+
+    {include file="public/footer" /}

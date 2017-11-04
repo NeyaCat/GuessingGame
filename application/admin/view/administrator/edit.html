@@ -1,0 +1,72 @@
+{include file="public/header" /}
+<body>
+<article class="page-container">
+    <form action="{:url('administrator/edit')}" method="post" class="form form-horizontal" id="form-member-add">
+
+        <input type="hidden" name="admin_id" value="{$data.admin_id}">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>管理员名称：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$data.admin_username}" placeholder="" id="" name="admin_username">
+            </div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>管理员密码：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$data.admin_password}" placeholder="" id=" "name="admin_password">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>管理员邮箱：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$data.email}" placeholder="" id="mobile" name="email">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电话：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="{$data.admin_tel}" placeholder="" id="mobile" name="admin_tel">
+            </div>
+        </div>
+
+
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" onclick="closess()" type="button" value="&nbsp;&nbsp;取消&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+    });
+
+    function closess() {
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+
+    var SCOPE = {
+
+        'uploadify_swf' : '__STATIC__/admin/uploadify/uploadify.swf',
+        'image_upload' : '{:url(\'api/Image/upload\')}',
+    };
+    if({$close}==1)
+    {
+        parent.location.reload();//刷新父窗口
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+</script>
+{load href="__STATIC__/admin/js/image.js" /}
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

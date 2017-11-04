@@ -1,0 +1,61 @@
+<table class="table table-hover" id="table_title">
+    <thead>
+    <tr>
+        <th>对阵</th>
+        <th>状态</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="$matchs" id="v"}
+        <tr style="height: 115px;">
+            <td>
+                <a href="{:url('match/index',['id'=>$v['matchs_id']])}">
+                    <div>
+                        <div style="width:90px;height:90px;margin: 0 auto;"><img src="{$v['team1']['timage']}" alt="{$v['team1']['tname']}" class="img-responsive"/></div>
+                        <b>{$v['team1']['tname']}</b>
+                    </div>
+                    <i>VS</i>
+                    <div>
+                        <div style="width:90px;height:90px;margin: 0 auto;"><img src="{$v['team2']['timage']}" alt="{$v['team2']['tname']}" class="img-responsive"/></div>
+                        <b>{$v['team2']['tname']}</b>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <span>{$v.status|matchs_stat_qian}</span>
+            </td>
+            <td>
+                <span>{:date("Y-m-d H:i:s",$v.starttime)}</span>
+            </td>
+            <td>
+                <span>{:date("Y-m-d H:i:s",$v.endtime)}</span>
+            </td>
+        </tr>
+    {/volist}
+
+    <!--<tr style="height: 115px;">-->
+        <!--<td>-->
+            <!--<a href="{:url('match/index')}">-->
+                <!--<div>-->
+                    <!--<img src="__STATIC__/index/image/home_06.jpg" alt="" class="img-responsive"/>-->
+                    <!--<b>SKT</b>-->
+                <!--</div>-->
+                <!--<i>VS</i>-->
+                <!--<div>-->
+                    <!--<img src="__STATIC__/index/image/home_06.jpg" alt="" class="img-responsive"/>-->
+                    <!--<b>SKT</b>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<span>进行中</span>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<span>2018-8-16 15:05</span>-->
+        <!--</td>-->
+    <!--</tr>-->
+
+    </tbody>
+</table>

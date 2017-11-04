@@ -1,0 +1,57 @@
+{include file="public/header" /}
+<body>
+<article class="page-container">
+    <form action="{:url('guess/teamsAdd')}" method="post" class="form form-horizontal" id="form-member-add">
+
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>队伍名：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="tname">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">上传队伍头像：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input id="file_upload_end"  type="file" multiple="true" >
+                <img style="display: block" id="upload_org_code_img_end" src="" width="150" height="150">
+                <input id="file_upload_image_end" name="timage" type="hidden" multiple="true" value="">
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" onclick="closess()" type="button" value="&nbsp;&nbsp;取消&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="public/footer" /}
+<script type="text/javascript">
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+    });
+    $(function(){
+        var ue = UE.getEditor('editor');
+
+    });
+    function closess() {
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+
+    var SCOPE = {
+
+        'uploadify_swf' : '__STATIC__/admin/uploadify/uploadify.swf',
+        'image_upload' : '{:url(\'api/Image/upload\')}',
+    };
+
+</script>
+{load href="__STATIC__/admin/js/image.js" /}
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

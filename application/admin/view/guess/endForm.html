@@ -1,0 +1,60 @@
+{include file="public/header" /}
+<style>
+.btn_s>div{
+    float: left; width: 50%; text-align: center;
+}
+</style>
+<body>
+<article class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛名称：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                {$matchs.matchs.mname}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛开始时间：</label>
+            <div class="formControls col-xs-8 col-sm-10">
+                {$matchs.matchs.starttime|date="Y-m-d h:s:m ", ###}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛结束时间：</label>
+            <div class="formControls col-xs-8 col-sm-10">
+                {$matchs.matchs.endtime|date="Y-m-d h:s:m ", ###}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">比赛队伍：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                {$matchs.matchs.team1_id|getTeamName}&nbsp;&nbsp;VS&nbsp;&nbsp;{$matchs.matchs.team2_id|getTeamName}
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">{$matchs.matchs.team1_id|getTeamName}最终得分：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="" placeholder="" name="point[0]" style="width: 120px;">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">{$matchs.matchs.team2_id|getTeamName}最终得分：</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="point[1]" style="width: 120px;">
+            </div>
+        </div>
+        <div class="row cl btn_s" style=" margin: auto; margin-top: 80px; width: 40%;">
+            <div>
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+            <div>
+                <input class="btn btn-primary radius" onclick="closess()" type="button" value="&nbsp;&nbsp;取消&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+
+{include file="public/footer" /}
+</body>
+</html>

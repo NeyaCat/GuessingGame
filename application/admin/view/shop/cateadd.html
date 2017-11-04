@@ -1,0 +1,76 @@
+{include file='public/header'/}
+<body>
+<div class="page-container">
+	<form action="{:url('shop/cateadd')}" method="post" class="form form-horizontal" id="form-category-add">
+		<div id="tab-category" class="HuiTab">
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品标题：</label>
+				<div class="formControls col-xs-8 col-sm-2"> <span class="select-box">
+				<select name="goods_cid" class="select">
+					<option value="">---请选择分类---</option>
+                {volist name='$cate' id='vo'}
+					<option value="{$vo.goods_cid}">{$vo.goods_title}</option>
+                {/volist}
+				</select>
+				</span>
+				</div>
+			</div>
+
+			<div class="tabCon1">
+				<div class="row cl">
+					<label class="form-label col-xs-2 col-sm-2">
+						<span class="c-red">*</span>
+						商品分类名称：</label>
+					<div class="formControls col-xs-8 col-sm-2">
+						<input type="text" class="input-text" value=""  name="goods_title">
+					</div>
+					<div class="col-3">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row cl">
+			<div class="col-9 col-offset-2">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</div>
+{include file='public/header'/}
+<script type="text/javascript">
+    if({$close}==1)
+    {
+        parent.location.reload();//刷新父窗口
+        parent.layer.closeAll();//关闭所有layer窗口
+    }
+    $(function(){
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#tab-category").Huitab({
+            index:0
+        });
+        $("#form-category-add").validate({
+            rules:{
+
+            },
+            onkeyup:false,
+            focusCleanup:true,
+            success:"valid",
+            submitHandler:function(form){
+                //$(form).ajaxSubmit();
+                var index = parent.layer.getFrameIndex(window.name);
+                //parent.$('.btn-refresh').click();
+                parent.layer.close(index);
+            }
+        });
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

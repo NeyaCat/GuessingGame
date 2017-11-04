@@ -1,0 +1,33 @@
+
+<div class="copyRight">
+    <p>Copyright © 2017 xxxxxx网络科技有限公司版权所有</p>
+    <p>xxICP备xxxxxxxxx号 企业营业执照xxxxxxxxxxxxxxxx</p>
+</div>
+
+<footer>
+    <div class="foot col-xs-12">
+        <a href="{:url('index/index')}" class="col-xs-3">主页</a>
+        <a href="{:url('guessing/index')}" class="col-xs-3">竞猜大厅</a>
+        <a href="{:url('shop/index')}" class="col-xs-3">兑换中心</a>
+        {if condition="session('user_id')==''"}
+        <a href="" class="col-xs-3" id="ss">个人中心</a>
+        {else}
+        <a href="{:url('userinfo/index')}" class="col-xs-3">个人中心</a>
+        {/if}
+    </div>
+</footer>
+<script src="__STATIC__/index/js/jquery-1.11.3.min.js"></script>
+<script src="__STATIC__/index/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+<script>
+
+    $("#ss").click(function () {
+        confirm('亲，需登录才能查看哦！')
+    })
+</script>
+
+</html>
